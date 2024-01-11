@@ -1,14 +1,14 @@
 <div class="container my-4">
-  <h2 class="fs-1">Чат-комната: <%= @exact_room.name %></h2>
+  <h2 class="fs-1">Chat Room: <%= @exact_room.name %></h2>
 
-  <h3>Участники чата:</h3>
+  <h3>Chat Participants:</h3>
   <ul>
     <% @exact_room.users.each do |user| %>
       <li><%= user.name %></li>
     <% end %>
   </ul>
 
-  <%= link_to "Выйти", root_path, class:"fs-5 text-white-50" %>
+  <%= link_to "Leave", root_path, class:"fs-5 text-white-50" %>
 
   <%= turbo_stream_from @exact_room %>
   <div id="messages" data-controller="scroll" class="message-field mt-4 border border-light rounded-4">

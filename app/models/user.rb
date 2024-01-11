@@ -20,7 +20,7 @@ class User < ApplicationRecord
   private
 
   def set_name
-    self.name = "Болтун ##{rand(999)}" if name.blank?
+    self.name = "Speaker ##{rand(999)}" if name.blank?
   end
 
   def user_params

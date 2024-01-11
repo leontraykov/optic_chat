@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
 
     it 'assigns a default name if none is provided' do
       user.save!
-      expect(user.name).to match(/Болтун #\d{1,3}/)
+      expect(user.name).to match(/Speaker #\d{1,3}/)
     end
   end
 
@@ -35,7 +35,7 @@ RSpec.describe User, type: :model do
 
     it 'sets a default name if none is provided' do
       user.save!
-      expect(user.name).to match(/Болтун #\d{1,3}/)
+      expect(user.name).to match(/Speaker #\d{1,3}/)
     end
   end
 end

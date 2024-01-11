@@ -21,7 +21,7 @@ RSpec.describe ChatRoom, type: :model do
     it 'sets a default name if none is provided' do
       chat_room.name = nil
       chat_room.valid? # will trigger the set_name callback
-      expect(chat_room.name).to match(/Болталка #\d{1,3}/)
+      expect(chat_room.name).to match(/Chat Room #\d{1,3}/)
     end
   end
 end

@@ -13,6 +13,6 @@ class ChatRoom < ApplicationRecord
   private
 
   def set_name
-    self.name = "Болталка ##{rand(999)}" if name.blank?
+    self.name = "Chat Room ##{rand(999)}" if name.blank?
   end
 end

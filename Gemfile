@@ -21,12 +21,12 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-end
-
-group :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem "cucumber"
+  gem "cucumber-rails", "~> 3.0", require: false
+  gem 'database_cleaner'
 end
 
 group :development do

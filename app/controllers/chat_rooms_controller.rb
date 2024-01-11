@@ -21,7 +21,7 @@ class ChatRoomsController < ApplicationController
 
     if @chat_room.save
       @chat_room.users << current_user
-      redirect_to @chat_room, notice: 'Готово. Болтайте на здоровье!'
+      redirect_to @chat_room, notice: 'Done. Freedom of speech!'
     else
       render :new
     end
