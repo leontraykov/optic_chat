@@ -1,12 +1,12 @@
-# features/login.feature
+# language: ru
 
-Feature: User login
+Функционал: Вход пользователя в систему
 
-  Scenario: Log in to the system
-    Given a user with email "test@example.com" and a password of "secret"
-    And I am not logged in
-    When I go to the log in page
-    And I fill in "user_email" with "test@example.com" 
-    And I fill in "user_password" with "secret"
-    And I press "Login"
-    Then I should see "This is ChatChat!"
+  Сценарий: Вход в систему
+    Допустим пользователь с электронной почтой "test@example.com" и паролем "secret"
+    И я не авторизован
+    Когда я перехожу на страницу входа
+    И я ввожу в поле "user_email" значение "test@example.com"
+    И я ввожу в поле "user_password" значение "secret"
+    И я нажимаю на кнопку "Login"
+    То я должен увидеть "This is ChatChat!"

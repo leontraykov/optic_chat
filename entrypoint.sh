@@ -1,6 +1,18 @@
 #!/bin/bash
 set -e
 
+# Проверка на запуск тестов
+if [ "$1" == "tests" ]; then
+  echo "Running RSpec tests..."
+  bundle exec rspec -f d
+
+  echo "Running Cucumber tests..."
+  bundle exec cucumber
+
+  exit 0
+fi
+
+# Удаление существующего PID файла сервера
 if [ -f tmp/pids/server.pid ]; then
   rm tmp/pids/server.pid
 fi
@@ -11,18 +23,11 @@ if [ ! -f /opt/app-initialized/initialized ]; then
   done
 
   touch /opt/app-initialized/initialized
+  bundle exec rake db:drop db:create db:migrate
+
+  echo "Seeding the database..."
+  bundle exec rake db:seed
+  echo "Database seeding completed."
 fi
-
-bundle exec rake db:drop db:create db:migrate 
-
-echo "Creating users..."
-bundle exec rake db:seed
-echo "Users created."
-
-echo "Running RSpec tests..."
-bundle exec rspec
-
-echo "Running Cucmber tests..."
-bundle exec cucumber
 
 exec "$@"

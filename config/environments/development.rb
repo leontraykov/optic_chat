@@ -8,12 +8,12 @@ Rails.application.configure do
   config.annotations.register_extensions('feature') { |tag| /#\s*(#{tag}):?\s*(.*)$/ }
 
   Rails.application.config.hosts = [
-    IPAddr.new("0.0.0.0/0"),        # All IPv4 addresses.
-    IPAddr.new("::/0"),             # All IPv6 addresses.
-    "localhost", "example.com",                   # The localhost reserved domain.
-    ENV["RAILS_DEVELOPMENT_HOSTS"]  # Additional comma-separated hosts for development.
+    IPAddr.new('0.0.0.0/0'),        # All IPv4 addresses.
+    IPAddr.new('::/0'),             # All IPv6 addresses.
+    'localhost', 'example.com', # The localhost reserved domain.
+    ENV['RAILS_DEVELOPMENT_HOSTS'] # Additional comma-separated hosts for development.
   ]
-  
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time

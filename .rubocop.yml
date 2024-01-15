@@ -5605,4 +5605,3 @@ Style/ZeroLengthPredicate:
   Safe: false
   VersionAdded: '0.37'
   VersionChanged: '0.39'
->>>>>>> 2f86762 (default rubocop rules)

@@ -23,6 +23,16 @@ services:
     depends_on:
       - db
       - redis
+  
+  tests:
+    build: .
+    command: /usr/bin/entrypoint.sh tests
+    volumes:
+      - .:/optic_chat
+      - init_volume:/opt/app-initialized
+    depends_on:
+      - db
+      - redis
 
   redis:
     image: redis:alpine

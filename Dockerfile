@@ -2,6 +2,7 @@ FROM ruby:3.2.2
 
 RUN apt-get update -qq && apt-get install -y nodejs npm postgresql-client
 RUN npm install -g yarn
+RUN echo "vm.overcommit_memory=1" >> /etc/sysctl.conf
 
 WORKDIR /optic_chat
 
