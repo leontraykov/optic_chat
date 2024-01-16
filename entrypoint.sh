@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-# Проверка на запуск тестов
 if [ "$1" == "tests" ]; then
   echo "Running RSpec tests..."
   bundle exec rspec -f d
@@ -12,7 +11,6 @@ if [ "$1" == "tests" ]; then
   exit 0
 fi
 
-# Удаление существующего PID файла сервера
 if [ -f tmp/pids/server.pid ]; then
   rm tmp/pids/server.pid
 fi

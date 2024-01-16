@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
       end
     else
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(@message, partial: 'messages/form', locals: { message: @message })
+        render turbo_stream: turbo_stream.replace('message_id', partial: 'messages/form', locals: { message: @message })
       end
       format.html { render 'chat_rooms/show' }
     end

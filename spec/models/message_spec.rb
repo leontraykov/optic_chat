@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Message, type: :model do
   let(:user) { User.create!(email: 'test@example.com', password: 'password') }
   let(:chat_room) { ChatRoom.create!(name: 'Test Room') }
-  let(:message) { Message.new(user:, chat_room:) }
+  let(:message) { build(:message, user: user, chat_room: chat_room) }
 
   describe 'associations' do
     it 'belongs to user' do

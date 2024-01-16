@@ -2,6 +2,8 @@
   <p class="fs-2">New Chat Room</p>
 
   <%= form_with model: @chat_room, local: true do |form| %>
+    <%= render partial: 'partials/form_errors', locals: {model: @chat_room} %>
+
     <div class="mb-3">
       <%= form.label :name, "Name", class: "form-label" %>
       <%= form.text_field :name, id: :chat_room_name, class: "form-control" %>

@@ -26,6 +26,9 @@ services:
   
   tests:
     build: .
+    environment:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://user:password@db/optic_chat_test
     command: /usr/bin/entrypoint.sh tests
     volumes:
       - .:/optic_chat
