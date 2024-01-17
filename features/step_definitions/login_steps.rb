@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Допустим('пользователь с электронной почтой {string} и паролем {string}') do |email, password|
+Допустим('я пользователь с электронной почтой {string} и паролем {string}') do |email, password|
   User.create!(email: email, password: password, password_confirmation: password)
 end
 

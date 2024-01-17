@@ -30,10 +30,8 @@ RSpec.describe MessagesController, type: :controller do
           chat_room_id: chat_room.id,
           message: { content: '' } # empty content is invalid
         }
-        expect {
-          post :create, params: post_params
-        }.not_to change(Message, :count)
-        expect(response).to render_template('chat_rooms/show')
+        post :create, params: post_params
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end

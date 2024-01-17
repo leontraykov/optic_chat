@@ -6,7 +6,7 @@ require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.allow_remote_database_url = true
 
-Capybara.app_host = 'http://localhost:5000' # замените 3000 на порт вашего локального сервера
+Capybara.app_host = 'http://localhost:5000'
 
 Before do
   DatabaseCleaner.start

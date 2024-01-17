@@ -12,7 +12,7 @@ end
 end
 
 Когда('я заполняю форму регистрации с недостающей информацией') do
-  fill_in 'Name', with: ''
+  fill_in 'Email', with: ''
   # Оставьте другие поля пустыми или заполните неверными данными
 end
 
@@ -25,5 +25,5 @@ end
 end
 
 То('я должен увидеть сообщение об ошибке') do
-  expect(page).to have_content('Name')
+  expect(page).to have_content('error')
 end

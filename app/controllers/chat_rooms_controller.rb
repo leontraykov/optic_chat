@@ -23,7 +23,7 @@ class ChatRoomsController < ApplicationController
       @chat_room.users << current_user
       redirect_to @chat_room, notice: 'Done. Freedom of speech!'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
