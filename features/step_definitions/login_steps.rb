@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Допустим('я пользователь с электронной почтой {string} и паролем {string}') do |email, password|
-  User.create!(email: email, password: password, password_confirmation: password)
+  User.create!(email:, password:, password_confirmation: password)
 end
 
 Когда('я перехожу на страницу входа') do
@@ -9,8 +9,6 @@ end
 end
 
 И('я не авторизован') do
-  # Убедиться, что пользователь не авторизован.
-  # Это может быть пустым, если сессии не сохраняются между тестами.
 end
 
 И('я ввожу в поле {string} значение {string}') do |field, value|

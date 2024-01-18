@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ChatRoomsController, type: :controller do
@@ -21,7 +23,7 @@ RSpec.describe ChatRoomsController, type: :controller do
     end
 
     it 'displays users' do
-      other_user = create(:user)
+      create(:user)
       get :index
       expect(response.body).to include('Participants')
     end
@@ -42,22 +44,32 @@ RSpec.describe ChatRoomsController, type: :controller do
   describe 'POST #create' do
     context 'with valid attributes' do
       it 'creates a new chat room and redirects to the show page' do
-        expect {
+        expect do
           post :create, params: { chat_room: { name: 'New Chat Room', user_ids: [] } }
-        }.to change(ChatRoom, :count).by(1)
+        end.to change(ChatRoom, :count).by(1)
         expect(response).to redirect_to(ChatRoom.last)
       end
     end
 
     context 'with blank name' do
       it 'creates a new chat room with default name' do
-        expect {
+        expect do
           post :create, params: { chat_room: { name: '', user_ids: [] } }
-        }.to change(ChatRoom, :count).by(1)
-  
+        end.to change(ChatRoom, :count).by(1)
+
         created_chat_room = ChatRoom.last
         expect(created_chat_room.name).to match(/Chat Room #\d+/)
         expect(response).to redirect_to(created_chat_room)
+      end
+    end
+
+    context 'with duplicate name' do
+      it 'does not create a chat room with duplicate name' do
+        ChatRoom.create!(name: 'Duplicate Room')
+        expect do
+          post :create, params: { chat_room: { name: 'Duplicate Room' } }
+        end.not_to change(ChatRoom, :count)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
@@ -71,16 +83,32 @@ RSpec.describe ChatRoomsController, type: :controller do
       expect(response).to be_successful
       expect(response).to have_http_status(200)
     end
+
     it 'displays the requested chat room details' do
       expect(response.body).to include(chat_room.name)
     end
-    
+
     it 'displays messages of the chat room ordered by created_at asc' do
-      message = create(:message, chat_room: chat_room)
+      message = create(:message, chat_room:)
       get :show, params: { id: chat_room.id }
       expect(response.body).to include(message.content)
     end
+
+    context 'with non-existent chat room' do
+      it 'redirects to index page with an error message' do
+        get :show, params: { id: 'non-existent' }
+        expect(response).to redirect_to(chat_rooms_path)
+        expect(flash[:alert]).to be_present
+      end
+    end
+  end
+
+  describe 'Authentication' do
+    before { sign_out user }
+
+    it 'redirects non-logged in user to sign in page' do
+      get :index
+      expect(response).to redirect_to(new_user_session_path)
+    end
   end
 end
-    
-

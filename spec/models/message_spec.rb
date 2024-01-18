@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Message, type: :model do
   let(:user) { User.create!(email: 'test@example.com', password: 'password') }
   let(:chat_room) { ChatRoom.create!(name: 'Test Room') }
-  let(:message) { build(:message, user: user, chat_room: chat_room) }
+  let(:message) { build(:message, user:, chat_room:) }
 
   describe 'associations' do
     it 'belongs to user' do
@@ -14,6 +14,16 @@ RSpec.describe Message, type: :model do
 
     it 'belongs to chat_room' do
       expect(message).to respond_to(:chat_room)
+    end
+
+    it 'is deleted when the associated chat_room is destroyed' do
+      message.save!
+      expect { chat_room.destroy }.to change(Message, :count).by(chat_room.messages.count * -1)
+    end
+
+    it 'is deleted when the associated user is destroyed' do
+      message.save!
+      expect { user.destroy }.to change(Message, :count).by(user.messages.count * -1)
     end
   end
 
@@ -33,7 +43,6 @@ RSpec.describe Message, type: :model do
     end
   end
 
-  # Replace 'attribute' with the name of the attribute which is being broadcasted to the chat room
   describe 'callbacks' do
     it 'broadcasts to chat room after creation' do
       message = Message.new(user:, chat_room:, content: 'Hello')

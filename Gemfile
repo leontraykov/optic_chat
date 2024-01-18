@@ -33,3 +33,5 @@ group :development do
   gem 'rubocop', require: false
   gem 'web-console'
 end
+
+gem 'bun', '~> 1.0'

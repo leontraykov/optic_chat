@@ -6,7 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :messages, dependent: :nullify
+  has_many :messages, dependent: :destroy
+  has_many :chat_room_users, dependent: :destroy
   has_many :chat_rooms, through: :chat_room_users
 
   validates :name, :email, presence: true, uniqueness: true

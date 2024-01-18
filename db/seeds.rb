@@ -15,10 +15,10 @@ users = user_data.map do |attributes|
 end
 
 chat_rooms = ChatRoom.create!([
-  { name: 'user_1 + user_2 Chatroom' },
-  { name: 'user_2 + user_3 Chatroom' },
-  { name: 'Common Chatroom' }
-])
+                                { name: 'user_1 + user_2 Chatroom' },
+                                { name: 'user_2 + user_3 Chatroom' },
+                                { name: 'Common Chatroom' }
+                              ])
 
 chat_room_users_data = [
   { chat_room: chat_rooms[0], user: users[0] },
@@ -27,7 +27,7 @@ chat_room_users_data = [
   { chat_room: chat_rooms[1], user: users[2] },
   { chat_room: chat_rooms[2], user: users[0] },
   { chat_room: chat_rooms[2], user: users[1] },
-  { chat_room: chat_rooms[2], user: users[2] },
+  { chat_room: chat_rooms[2], user: users[2] }
 ]
 
 chat_room_users_data.each do |chat_room_user_attributes|
