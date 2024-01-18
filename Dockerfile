@@ -11,7 +11,6 @@ COPY Gemfile.lock /optic_chat/Gemfile.lock
 RUN bundle install
 
 COPY . /optic_chat
-RUN yarn install
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
