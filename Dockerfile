@@ -12,6 +12,7 @@ RUN bundle install
 
 COPY . /optic_chat
 
+COPY package.json yarn.lock ./
 RUN yarn install
 RUN yarn build
 RUN yarn build:css
