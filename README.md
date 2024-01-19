@@ -3,6 +3,8 @@
 
 Это приложение - чат, где пользователи могут создавать комнаты и обмениваться сообщениями в реальном времени. Проект разработан с использованием Ruby on Rails 7, Docker, PostgreSQL, Hotwire Turbo & Stimulus, Rspec, Devise и Bootstrap 5, а также протестирован с помощью Cucumber и RSpec.
 
+Включает в себя автоматическое создание начальных данных: предустановлены пользователи (например, user_1@ex.co с паролем user_1_password) и чат-комнаты (например, "Общая Чат-Комната"). Это позволяет быстро начать использование приложения.
+
 ## Функциональность
 
 - Создание и вход в комнаты для общения.
@@ -28,10 +30,13 @@
 
 Откройте приложение в браузере по адресу http://localhost:5000
 
+
 [EN]
 # ChatChat
 
 This application is a chat platform where users can create rooms and exchange messages in real time. The project is developed using Ruby on Rails 7, Docker, PostgreSQL, Hotwire Turbo & Stimulus, Rspec, Devise, and Bootstrap 5, and it's thoroughly tested with Cucumber and RSpec.
+
+Includes automatic creation of initial data: pre-set users (for example, user_1@ex.co with the password user_1_password) and chat rooms (for example, "Common Chat Room"). This allows you to quickly start using the application.
 
 ## Features
 
