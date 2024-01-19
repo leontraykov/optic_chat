@@ -13,6 +13,8 @@ RUN bundle install
 COPY . /optic_chat
 
 RUN yarn install
+RUN yarn build
+RUN yarn build:css
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
