@@ -1,6 +1,6 @@
 # ЧатЧат
 
-Это приложение - чат, где пользователи могут создавать комнаты и обмениваться сообщениями в реальном времени. Проект разработан с использованием Ruby on Rails 7, PostgreSQL, Hotwire Turbo & Stimulus, Rspec, Devise и Bootstrap 5, а также протестирован с помощью Cucumber и RSpec.
+Это приложение - чат, где пользователи могут создавать комнаты и обмениваться сообщениями в реальном времени. Проект разработан с использованием Ruby on Rails 7, Docker, PostgreSQL, Hotwire Turbo & Stimulus, Rspec, Devise и Bootstrap 5, а также протестирован с помощью Cucumber и RSpec.
 
 ## Функциональность
 
@@ -14,7 +14,7 @@
 
 Клонируйте репозиторий:
 
-    git clone https://github.com/leontraykov/chat.git <папка>
+    git clone https://github.com/leontraykov/optic_chat.git <папка>
     cd <папка>
 
 Запустите приложение с помощью Docker:
