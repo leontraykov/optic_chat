@@ -1,6 +1,7 @@
 FROM ruby:3.2.2
 
 RUN apt-get update -qq && apt-get install -y nodejs npm postgresql-client
+RUN npm install -g esbuild
 RUN npm install -g yarn
 
 WORKDIR /optic_chat
