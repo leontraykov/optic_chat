@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-yarn build
-yarn build:css
-
 if [ "$1" == "tests" ]; then
   echo "Running Cucumber tests..."
   bundle exec cucumber
