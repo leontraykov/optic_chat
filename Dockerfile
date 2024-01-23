@@ -25,7 +25,6 @@ COPY . /optic_chat
 RUN bun install
 
 # Сборка ассетов с помощью Bun
-RUN bun run build
 RUN bun run build:js
 RUN bun run build:css
 
