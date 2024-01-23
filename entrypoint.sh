@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+bun run build
+bun run build:js
+bun run build:css
+
 if [ "$1" == "tests" ]; then
   echo "Running Cucumber tests..."
   bundle exec cucumber
